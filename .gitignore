@@ -1,0 +1,12 @@
+.svn
+target/
+.idea/
+*.bak
+*.iml
+*.versionsBackup
+.DS_Store
+.project
+.settings
+.classpath
+.applicationContext-datasource.xml
+.py/ams-web/
