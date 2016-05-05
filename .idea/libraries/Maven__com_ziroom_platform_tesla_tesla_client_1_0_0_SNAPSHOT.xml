@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ziroom.platform.tesla:tesla-client:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ziroom/platform/tesla/tesla-client/1.0.0-SNAPSHOT/tesla-client-1.0.0-20160419.135813-80.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ziroom/platform/tesla/tesla-client/1.0.0-SNAPSHOT/tesla-client-1.0.0-20160419.135813-80-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ziroom/platform/tesla/tesla-client/1.0.0-SNAPSHOT/tesla-client-1.0.0-20160419.135813-80-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/CollectionUtilsDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/CreateDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/DoubleMathDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/IntMathDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/JoinerDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/NewTypeCollection.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/ObjectsDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/OrderingDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/SplitterDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ziroom/mytesla/guava/使用文档.docx" charset="GBK" />
+  </component>
+</project>

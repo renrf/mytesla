@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ziroom.platform.tesla:tesla-config-spring:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ziroom/platform/tesla/tesla-config-spring/1.0.0-SNAPSHOT/tesla-config-spring-1.0.0-20160419.135807-45.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ziroom/platform/tesla/tesla-config-spring/1.0.0-SNAPSHOT/tesla-config-spring-1.0.0-20160419.135807-45-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ziroom/platform/tesla/tesla-config-spring/1.0.0-SNAPSHOT/tesla-config-spring-1.0.0-20160419.135807-45-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

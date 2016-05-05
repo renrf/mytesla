@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ziroom.mytesla.business.room.dao.IRoomDao" >
+
+  <resultMap id="roomMap" type="room" >
+    		<result column="id" property="id"/>
+			<result column="house_code" property="houseCode"/>
+			<result column="room_code" property="roomCode"/>
+			<result column="room_name" property="roomName"/>
+			<result column="room_type_code" property="roomTypeCode"/>
+			<result column="room_direction" property="roomDirection"/>
+			<result column="usage_area" property="usageArea"/>
+			<result column="is_balcony" property="isBalcony"/>
+			<result column="is_pwdlock" property="isPwdlock"/>
+			<result column="is_independent_toilet" property="isIndependentToilet"/>
+			<result column="creator" property="creator"/>
+			<result column="create_date" property="createDate"/>
+			<result column="is_del" property="isDel"/>
+			<result column="last_modifier" property="lastModifier"/>
+			<result column="last_modify_time" property="lastModifyTime"/>
+	  </resultMap>
+  
+  	<!-- 表字段 -->
+	<sql id="columnSql" >
+	   	   id, 	   house_code, 	   room_code, 	   room_name, 	   room_type_code, 	   room_direction, 	   usage_area, 	   is_balcony, 	   is_pwdlock, 	   is_independent_toilet, 	   creator, 	   create_date, 	   is_del, 	   last_modifier, 	   last_modify_time 	</sql>
+  
+  	<!-- 查询条件 -->
+	<sql id="whereSql">
+	    	<if test="id != null and id != ''">
+				and 
+				id = #{id}
+			</if>
+	    	<if test="houseCode != null and houseCode != ''">
+				and 
+				house_code = #{houseCode}
+			</if>
+	    	<if test="roomCode != null and roomCode != ''">
+				and 
+				room_code = #{roomCode}
+			</if>
+	    	<if test="roomName != null and roomName != ''">
+				and 
+				room_name = #{roomName}
+			</if>
+	    	<if test="roomTypeCode != null">
+				and 
+				room_type_code = #{roomTypeCode}
+			</if>
+	    	<if test="roomDirection != null and roomDirection != ''">
+				and 
+				room_direction = #{roomDirection}
+			</if>
+	    	<if test="usageArea != null">
+				and 
+				usage_area = #{usageArea}
+			</if>
+	    	<if test="isBalcony != null">
+				and 
+				is_balcony = #{isBalcony}
+			</if>
+	    	<if test="isPwdlock != null">
+				and 
+				is_pwdlock = #{isPwdlock}
+			</if>
+	    	<if test="isIndependentToilet != null and isIndependentToilet != ''">
+				and 
+				is_independent_toilet = #{isIndependentToilet}
+			</if>
+	    	<if test="creator != null and creator != ''">
+				and 
+				creator = #{creator}
+			</if>
+	    	<if test="createDate != null and createDate != ''">
+				and 
+				create_date = #{createDate}
+			</if>
+	    	<if test="isDel != null">
+				and 
+				is_del = #{isDel}
+			</if>
+	    	<if test="lastModifier != null and lastModifier != ''">
+				and 
+				last_modifier = #{lastModifier}
+			</if>
+	    	<if test="lastModifyTime != null and lastModifyTime != ''">
+				and 
+				last_modify_time = #{lastModifyTime}
+			</if>
+	</sql>
+  
+  	<!-- 根据ID获取对象信息 -->
+	<select id="findRoom" resultMap="roomMap" parameterType="java.lang.Integer" >
+	  select 
+	  	<include refid="columnSql" />
+	  from op_room
+	  where id = #{id}
+	</select>
+	
+	<!-- 根据条件获取对象集合信息 -->
+	<select id="findRoomList" resultMap="roomMap" parameterType="java.util.HashMap" >
+	  select 
+	  	<include refid="columnSql" />
+	  from op_room
+	  where 1=1
+	  	<include refid="whereSql" />
+	</select>
+	
+	
+	<!-- 保存对象 -->
+	<insert id="saveRoom" parameterType="room" useGeneratedKeys="true" keyProperty="id">
+	  insert into op_room (id,house_code,room_code,room_name,room_type_code,room_direction,usage_area,is_balcony,is_pwdlock,is_independent_toilet,creator,create_date,is_del,last_modifier,last_modify_time)
+	  values (#{id},#{houseCode},#{roomCode},#{roomName},#{roomTypeCode},#{roomDirection},#{usageArea},#{isBalcony},#{isPwdlock},#{isIndependentToilet},#{creator},#{createDate},#{isDel},#{lastModifier},#{lastModifyTime})
+	</insert>
+	
+	<!-- 更新对象 -->
+	<update id="updateRoom" parameterType="room" >
+	  update op_room
+	  set
+			    	    	<if test="roomName != null">
+	    	room_name = #{roomName}
+	    	,			</if>
+
+			    	    	<if test="roomTypeCode != null">
+	    	room_type_code = #{roomTypeCode}
+	    	,			</if>
+
+			    	    	<if test="roomDirection != null">
+	    	room_direction = #{roomDirection}
+	    	,			</if>
+
+			    	    	<if test="usageArea != null">
+	    	usage_area = #{usageArea}
+	    	,			</if>
+
+			    	    	<if test="isBalcony != null">
+	    	is_balcony = #{isBalcony}
+	    	,			</if>
+
+			    	    	<if test="isPwdlock != null">
+	    	is_pwdlock = #{isPwdlock}
+	    	,			</if>
+
+			    	    	<if test="isIndependentToilet != null">
+	    	is_independent_toilet = #{isIndependentToilet}
+	    	,			</if>
+
+			    	    <if test="isDel != null">
+	    	is_del = #{isDel}
+	    	,			</if>
+
+			    	    	<if test="lastModifier != null">
+	    	last_modifier = #{lastModifier}
+	    	,			</if>
+
+			    	    	<if test="lastModifyTime != null">
+	    	last_modify_time = #{lastModifyTime}
+	    				</if>
+
+			  where 1=1
+			  <if test="id != null">
+			  	and id = #{id}
+			  </if>
+			  <if test="roomCode != null">
+				and room_code = #{roomCode}
+			</if>
+	</update>
+	
+	<!-- 删除对象 -->
+	<delete id="deleteRoom" parameterType="java.lang.Integer" >
+	  update op_room
+	  set 
+	  is_del = 1
+	  where id = #{id}
+	</delete>
+	
+</mapper>

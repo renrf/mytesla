@@ -1,0 +1,2 @@
+http://localhost:8080/mytesla/client/room/484
+http://localhost:8080/mytesla/client/room?roomId=484
