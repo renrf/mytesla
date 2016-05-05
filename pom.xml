@@ -28,6 +28,7 @@
 	    <org.aspectjweaver-version>1.8.4</org.aspectjweaver-version>
 	    <mysql-version>5.1.36</mysql-version>
 	    <io.swagger-version>1.5.8</io.swagger-version>
+	    <redis.clients>2.6.2</redis.clients>
     
     </properties>
     <dependencyManagement>
@@ -111,7 +112,11 @@
 			<version>${io.swagger-version}</version>
 		</dependency>
 	
-		
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${redis.clients}</version>
+		</dependency>
 
 	
 		<!-- mybatis -->

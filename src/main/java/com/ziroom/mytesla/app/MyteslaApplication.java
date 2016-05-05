@@ -23,7 +23,8 @@ public class MyteslaApplication extends BaseTeslaApplication {
 		beanConfig.setSchemes(new String[]{"http"});
 		beanConfig.setHost("localhost:8080");
 		beanConfig.setBasePath("/mytesla");
-		beanConfig.setResourcePackage("com.ziroom.mytesla.resources.server");
+		beanConfig.setTitle("tesla test");
+		beanConfig.setResourcePackage("com.ziroom.mytesla.resources.client");
 		beanConfig.setScan(true);
     }
 }
