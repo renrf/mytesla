@@ -3,6 +3,8 @@ package com.ziroom.mytesla.common.util;
 import com.google.common.base.CharMatcher;
 import org.apache.commons.lang.StringUtils;
 
+import java.io.*;
+
 /**
  * @author liumy  .
  * @time 2016/5/5　16:10
@@ -43,6 +45,7 @@ public class StringUtil {
 
     /**
      * 判断字符串是否为空
+     *
      * @param chkStr
      * @return chkStr=null true
      * chkStr="123" false
@@ -61,23 +64,23 @@ public class StringUtil {
 
     /**
      * 判断字符串数组是否为空
-     * @param chkStrs
-     * return
-     * chkStrs==null   true
-     * chkStrs   内元素存在空值返回 true
-     * 否则返回false
+     *
+     * @param chkStrs return
+     *                chkStrs==null   true
+     *                chkStrs   内元素存在空值返回 true
+     *                否则返回false
      */
     public static boolean isEmpty(String[] chkStrs) {
-        if (chkStrs==null||chkStrs.length<=0)
-            return  true;
-        boolean isNull=false;
-        for(String str:chkStrs){
-            if (isEmpty(str)){
-                isNull=true;
+        if (chkStrs == null || chkStrs.length <= 0)
+            return true;
+        boolean isNull = false;
+        for (String str : chkStrs) {
+            if (isEmpty(str)) {
+                isNull = true;
                 break;
             }
         }
-        return  isNull;
+        return isNull;
     }
 
 
@@ -265,6 +268,7 @@ public class StringUtil {
 
     /**
      * 字符串反转
+     *
      * @param str
      * @return
      */
@@ -278,6 +282,7 @@ public class StringUtil {
 
     /**
      * 字符串大小写切换
+     *
      * @param str
      * @return
      */
@@ -314,6 +319,7 @@ public class StringUtil {
 
     /**
      * 获取标示位之前的字符串
+     *
      * @param sourceStr
      * @param expr
      * @return
@@ -334,6 +340,7 @@ public class StringUtil {
 
     /**
      * 截取
+     *
      * @param sourceStr
      * @param expr
      * @return
@@ -356,81 +363,194 @@ public class StringUtil {
 
     /**
      * 在字符串中提取字母
+     *
      * @param str
      * @return
      */
-    public  static  String subStringLetter(String str){
-        if (isEmpty(str)) return  null;
-        return  CharMatcher.JAVA_LETTER.retainFrom(str)==null?null:CharMatcher.SINGLE_WIDTH.retainFrom(CharMatcher.JAVA_LETTER.retainFrom(str));
+    public static String subStringLetter(String str) {
+        if (isEmpty(str)) return null;
+        return CharMatcher.JAVA_LETTER.retainFrom(str) == null ? null : CharMatcher.SINGLE_WIDTH.retainFrom(CharMatcher.JAVA_LETTER.retainFrom(str));
     }
 
     /**
      * 在字符串替换非字母字符
+     *
      * @param str
      * @return
      */
-    public  static  String replaceStringLetter(String str,String replaceStr){
-        if (isEmpty(str)) return  null;
-        if (replaceStr==null) return str;
-        return  CharMatcher.JAVA_LETTER.replaceFrom(str, replaceStr)==null?null:CharMatcher.SINGLE_WIDTH.retainFrom(CharMatcher.JAVA_LETTER.replaceFrom(str, replaceStr));
+    public static String replaceStringLetter(String str, String replaceStr) {
+        if (isEmpty(str)) return null;
+        if (replaceStr == null) return str;
+        return CharMatcher.JAVA_LETTER.replaceFrom(str, replaceStr) == null ? null : CharMatcher.SINGLE_WIDTH.retainFrom(CharMatcher.JAVA_LETTER.replaceFrom(str, replaceStr));
     }
-
 
 
     /**
      * 字符串提取数字
+     *
      * @param str
      * @return
      */
-    public  static String subStringDigit(String str){
-        if (isEmpty(str)) return  null;
+    public static String subStringDigit(String str) {
+        if (isEmpty(str)) return null;
         return CharMatcher.JAVA_DIGIT.retainFrom("some text 899083 and more");
     }
 
     /**
      * 字符串提取小写字母
+     *
      * @param str
      * @return
      */
-    public  static  String subStringLowerCase(String str){
-        if (isEmpty(str)) return  null;
-        return  CharMatcher.JAVA_LOWER_CASE.retainFrom(str);
+    public static String subStringLowerCase(String str) {
+        if (isEmpty(str)) return null;
+        return CharMatcher.JAVA_LOWER_CASE.retainFrom(str);
     }
 
 
     /**
      * 字符串提取大写字母
+     *
      * @param str
      * @return
      */
-    public  static  String subStringUpperCase(String str){
-        if (isEmpty(str)) return  null;
-        return  CharMatcher.JAVA_UPPER_CASE.retainFrom(str);
+    public static String subStringUpperCase(String str) {
+        if (isEmpty(str)) return null;
+        return CharMatcher.JAVA_UPPER_CASE.retainFrom(str);
     }
 
     /**
      * 提取非中文字符
+     *
      * @param str
      * @return
      */
-    public  static  String subStringSingleWidth(String str){
+    public static String subStringSingleWidth(String str) {
         if (isEmpty(str)) return null;
-        return  CharMatcher.SINGLE_WIDTH.retainFrom(str);
+        return CharMatcher.SINGLE_WIDTH.retainFrom(str);
     }
 
 
     /**
      * 提取控制字符
+     *
      * @param str
      * @return
      */
-    public  static  String subStringJavaIsoControl(String str){
+    public static String subStringJavaIsoControl(String str) {
         if (isEmpty(str)) return null;
-        return  CharMatcher.JAVA_ISO_CONTROL.retainFrom(str);
+        return CharMatcher.JAVA_ISO_CONTROL.retainFrom(str);
     }
 
 
+    /**
+     * InputStream转byte数组
+     *
+     * @param is
+     * @return
+     */
+    public byte[] stream2Byte(InputStream is) {
 
+        byte[] in_b = null;
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+            int i = -1;
+            while ((i = is.read()) != -1) {
+                os.write(i);
+
+            }
+
+            in_b = os.toByteArray();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return in_b;
+
+    }
+
+
+    /**
+     * InputStream 转String
+     *
+     * @param is
+     * @return
+     */
+    public String stream2String(InputStream is) {
+
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            StringWriter sw = new StringWriter();
+            int i = -1;
+            while ((i = br.read()) != -1) {
+                sw.write(i);
+            }
+            return sw.getBuffer().toString();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return null;
+
+    }
+
+
+    /**
+     * 判断是否包含中文汉字
+     *
+     * @param strName
+     * @return
+     */
+    public boolean isChineseHave(String strName) {
+        char[] ch = strName.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            char c = ch[i];
+            if (isChinese(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * 根据Unicode编码完美的判断中文汉字和符号
+     *
+     * @param c
+     * @return
+     */
+    private boolean isChinese(char c) {
+        Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
+        if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
+                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B
+                || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION
+                || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS
+                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * 判断是否只有中文汉字
+     *
+     * @param strName
+     * @return
+     */
+    public boolean isChineseAll(String strName) {
+        char[] ch = strName.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            char c = ch[i];
+            if (!isChinese(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
     private static String repeat(char ch, int repeat) {
@@ -442,10 +562,9 @@ public class StringUtil {
     }
 
 
+    public static void main(String[] agrs) {
 
-    public  static  void  main(String[] agrs){
-
-        String[] str={"111","123","234"};
+        String[] str = {"111", "123", "234"};
         System.out.println(isEmpty(str));
         System.out.println(subStringLetter(null));
         System.out.println(subStringJavaIsoControl("SOME \t\r\b text 899083 and more"));
