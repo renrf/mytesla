@@ -18,15 +18,15 @@ import javax.ws.rs.Produces;
 @Path("/")
 @Scope("request")
 public class RoomResource2 {
-    @Value("${your.name}")
-    private String yourName;
+    @Value("${name}")
+    private String name;
 
     @GET
     @Produces({"text/plain"})
     @Path("t2")
     public String testTesla() {
         ApplicationConfiguration configuration = TeslaConfigurationFactory.getInstance();
-        return "hello " + configuration.getString("your.name", "j") + " and " + this.yourName;
+        return "hello " + configuration.getString("name", "j") + " and " + this.name;
     }
 
 
