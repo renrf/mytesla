@@ -47,7 +47,7 @@ public class CharMatcherDemo {
              *
              */
             {
-                System.out.println(CharMatcher.JAVA_ISO_CONTROL.replaceFrom("SOME\t\r\b text 899083 and more", "*")+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                System.out.println(CharMatcher.JAVA_ISO_CONTROL.replaceFrom("SOME\t\r\b text 899083 and more", "*"));
                 // /cofiguration/appInterface!getDataTypeCount.action 转换为 cofiguration_appInterface_getDataTypeCount
                 String s = "/cofiguration/appInterface!getDataTypeCount.action";
                 s = CharMatcher.JAVA_LETTER_OR_DIGIT.negate().replaceFrom(s, "_");
