@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 两个对象比较
+ * 涓や釜瀵硅薄姣旇緝
  *
  */
 public class ObjectsDemo {
 
     public static void main(String[] args) {
         /**
-         * 1 equal方法使用
-         * 注意：JDK7引入的Objects类提供了一样的方法Objects.equals
+         * 1 equal鏂规硶浣跨敤
+         * 娉ㄦ剰锛欽DK7寮曞叆鐨凮bjects绫绘彁渚涗簡涓�鏍风殑鏂规硶Objects.equals
          */
         {
             System.out.println(Objects.equal(null, null));//true
@@ -22,7 +22,7 @@ public class ObjectsDemo {
             System.out.println(Objects.equal("str1", null));//false
             System.out.println(Objects.equal("str1", "str1"));//true
 
-            //比较集合
+            //姣旇緝闆嗗悎
             List<String> l = new ArrayList<String>();
             l.add("1");
             List<String> ll = new ArrayList<String>();

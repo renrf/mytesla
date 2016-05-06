@@ -5,39 +5,39 @@ import java.math.BigDecimal;
 import com.google.common.math.DoubleMath;
 
 /**
- * ¸¡µãÊıÔËËã<br>
- * Ö»ÁĞ¾Ù³£ÓÃµÄ£¬¸ü¶àµÄ×ÔĞĞÑĞ¾¿Èç½×³Ë¡¢¶şÏîÊ½µÈ<br>
+ * æµ®ç‚¹æ•°è¿ç®—<br>
+ * åªåˆ—ä¸¾å¸¸ç”¨çš„ï¼Œæ›´å¤šçš„è‡ªè¡Œç ”ç©¶å¦‚é˜¶ä¹˜ã€äºŒé¡¹å¼ç­‰<br>
  *
  * @author homelink
  *
  */
 public class DoubleMathDemo {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
 	/**
-	 * ÅĞ¶Ï¸¡µãÊıÊÇ²»ÊÇÒ»¸öÕûÊı
+	 * @param args
 	 */
-	System.out.println(DoubleMath.isMathematicalInteger(50.0d));
-	/**
-	 * double×ªint <br>
-	 * RoundingMode: <br>
-	 * DOWN£ºÏòÁã·½ÏòÉáÈë£¨È¥Î²·¨£© <br>
-	 * UP£ºÔ¶ÀëÁã·½ÏòÉáÈë <br>
-	 * FLOOR£ºÏò¸ºÎŞÏŞ´ó·½ÏòÉáÈë <br>
-	 * CEILING£ºÏòÕıÎŞÏŞ´ó·½ÏòÉáÈë <br>
-	 * UNNECESSARY£º²»ĞèÒªÉáÈë£¬Èç¹ûÓÃ´ËÄ£Ê½½øĞĞÉáÈë£¬Ó¦Ö±½ÓÅ×³öArithmeticException <br>
-	 * HALF_UP£ºÏò×î½üµÄÕûÊıÉáÈë£¬ÆäÖĞx.5Ô¶ÀëÁã·½ÏòÉáÈë <br>
-	 * HALF_DOWN£ºÏò×î½üµÄÕûÊıÉáÈë£¬ÆäÖĞx.5ÏòÁã·½ÏòÉáÈë <br>
-	 * HALF_EVEN£ºÏò×î½üµÄÕûÊıÉáÈë£¬ÆäÖĞx.5ÏòÏàÁÚµÄÅ¼ÊıÉáÈë
-	 */
-	System.out.println(DoubleMath.roundToInt(1.5d, java.math.RoundingMode.HALF_DOWN));
+	public static void main(String[] args) {
+		/**
+		 * åˆ¤æ–­æµ®ç‚¹æ•°æ˜¯ä¸æ˜¯ä¸€ä¸ªæ•´æ•°
+		 */
+		System.out.println(DoubleMath.isMathematicalInteger(50.0d));
+		/**
+		 * doubleè½¬int <br>
+		 * RoundingMode: <br>
+		 * DOWNï¼šå‘é›¶æ–¹å‘èˆå…¥ï¼ˆå»å°¾æ³•ï¼‰ <br>
+		 * UPï¼šè¿œç¦»é›¶æ–¹å‘èˆå…¥ <br>
+		 * FLOORï¼šå‘è´Ÿæ— é™å¤§æ–¹å‘èˆå…¥ <br>
+		 * CEILINGï¼šå‘æ­£æ— é™å¤§æ–¹å‘èˆå…¥ <br>
+		 * UNNECESSARYï¼šä¸éœ€è¦èˆå…¥ï¼Œå¦‚æœç”¨æ­¤æ¨¡å¼è¿›è¡Œèˆå…¥ï¼Œåº”ç›´æ¥æŠ›å‡ºArithmeticException <br>
+		 * HALF_UPï¼šå‘æœ€è¿‘çš„æ•´æ•°èˆå…¥ï¼Œå…¶ä¸­x.5è¿œç¦»é›¶æ–¹å‘èˆå…¥ <br>
+		 * HALF_DOWNï¼šå‘æœ€è¿‘çš„æ•´æ•°èˆå…¥ï¼Œå…¶ä¸­x.5å‘é›¶æ–¹å‘èˆå…¥ <br>
+		 * HALF_EVENï¼šå‘æœ€è¿‘çš„æ•´æ•°èˆå…¥ï¼Œå…¶ä¸­x.5å‘ç›¸é‚»çš„å¶æ•°èˆå…¥
+		 */
+		System.out.println(DoubleMath.roundToInt(1.5d, java.math.RoundingMode.HALF_DOWN));
 
-	/**
-	 * ±£ÁôĞ¡Êı
-	 */
-	System.out.println(new BigDecimal(-1.675d).setScale(2, java.math.RoundingMode.HALF_UP).doubleValue());
-    }
+		/**
+		 * ä¿ç•™å°æ•°
+		 */
+		System.out.println(new BigDecimal(-1.675d).setScale(2, java.math.RoundingMode.HALF_UP).doubleValue());
+	}
 }

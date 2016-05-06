@@ -8,27 +8,27 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ¼¯ºÏ×ª×Ö·û´®
- * JoinerÖ÷ÒªÕë¶Ô½«CollectionºÍMapµÄ¼¯ºÏ×ª×Ö·û´®µÄ³¡¾°
+ * é›†åˆè½¬å­—ç¬¦ä¸²
+ * Joinerä¸»è¦é’ˆå¯¹å°†Collectionå’ŒMapçš„é›†åˆè½¬å­—ç¬¦ä¸²çš„åœºæ™¯
  */
 public class JoinerDemo {
     private static final String DELIMITER = ",";
-    //JoinerÒ»µ©´´½¨²»¿É±ä£¬·ûºÏ²»±äĞÔ£¬Òò´ËÏß³Ì°²È«
+    //Joinerä¸€æ—¦åˆ›å»ºä¸å¯å˜ï¼Œç¬¦åˆä¸å˜æ€§ï¼Œå› æ­¤çº¿ç¨‹å®‰å…¨
     private static final Joiner joiner = Joiner.on(DELIMITER);
 
     public static void main(String[] args) {
         /**
-         * 1 appendTo·½·¨Ê¹ÓÃ
-         * µÚÒ»¸ö²ÎÊıÊÇÊµÏÖÁËAppendable½Ó¿ÚµÄÀà
-         * ºóÃæµÄ²ÎÊı¿ÉÒÔÊÇÊµÏÖÁË¼¯ºÏ¡¢Êı×é¡¢¿É±ä³¤²ÎÊı
+         * 1 appendToæ–¹æ³•ä½¿ç”¨
+         * ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å®ç°äº†Appendableæ¥å£çš„ç±»
+         * åé¢çš„å‚æ•°å¯ä»¥æ˜¯å®ç°äº†é›†åˆã€æ•°ç»„ã€å¯å˜é•¿å‚æ•°
          *
-         * ×¢ÒâNULLµÄ´¦Àí£º
-         * ¼¯ºÏ¡¢Êı×é¡¢¿É±ä³¤²ÎÊıÖĞº¬ÓĞNULL,²»×ö´¦Àí»áÅ×³ö¿ÕÖ¸ÕëÒì³£,Èç¹û´¦ÀíÓĞÒ»ÏÂÁ½ÖÖ·½Ê½£º
-         * 1 Ê¹ÓÃskipNulls×Ô¶¯ºöÂÔNULLÖµ
-         * 2 Ê¹ÓÃuseForNullÌæ»»NULL
+         * æ³¨æ„NULLçš„å¤„ç†ï¼š
+         * é›†åˆã€æ•°ç»„ã€å¯å˜é•¿å‚æ•°ä¸­å«æœ‰NULL,ä¸åšå¤„ç†ä¼šæŠ›å‡ºç©ºæŒ‡é’ˆå¼‚å¸¸,å¦‚æœå¤„ç†æœ‰ä¸€ä¸‹ä¸¤ç§æ–¹å¼ï¼š
+         * 1 ä½¿ç”¨skipNullsè‡ªåŠ¨å¿½ç•¥NULLå€¼
+         * 2 ä½¿ç”¨useForNullæ›¿æ¢NULL
          */
         {
-            //1.1 ¼¯ºÏ
+            //1.1 é›†åˆ
             StringBuilder sb = new StringBuilder("result:");
             List<String> list = new ArrayList<String>();
             list.add("one");
@@ -37,13 +37,13 @@ public class JoinerDemo {
             joiner.appendTo(sb, list);
             System.out.println(sb);
 
-            //1.2 Êı×é
+            //1.2 æ•°ç»„
             sb = new StringBuilder("result:");
             String[] arr = new String[]{"one", "two", "three"};
             joiner.appendTo(sb, arr);
             System.out.println(sb);
 
-            //1.3 ¿É±ä³¤²ÎÊı
+            //1.3 å¯å˜é•¿å‚æ•°
             sb = new StringBuilder("result:");
             joiner.appendTo(sb, "one", "two", "three");
             System.out.println(sb);
@@ -62,40 +62,40 @@ public class JoinerDemo {
 
         }
         /**
-         * 2 join·½·¨Ê¹ÓÃ
-         * µÚÒ»¸ö²ÎÊı¿ÉÒÔÊÇÊµÏÖÁË¼¯ºÏ¡¢Êı×é¡¢¿É±ä³¤²ÎÊı
-         * ×¢ÒâNULLµÄ´¦Àí£ºÍ¬ÉÏ
+         * 2 joinæ–¹æ³•ä½¿ç”¨
+         * ç¬¬ä¸€ä¸ªå‚æ•°å¯ä»¥æ˜¯å®ç°äº†é›†åˆã€æ•°ç»„ã€å¯å˜é•¿å‚æ•°
+         * æ³¨æ„NULLçš„å¤„ç†ï¼šåŒä¸Š
          */
         {
-            //2.1 ¼¯ºÏ
+            //2.1 é›†åˆ
             List<String> list = new ArrayList<String>();
             list.add("one");
             list.add("two");
             list.add("three");
             System.out.println(joiner.join(list));
 
-            //2.2 Êı×é
+            //2.2 æ•°ç»„
             String[] arr = new String[]{"one", "two", "three"};
             System.out.println(joiner.join(arr));
 
-            //2.3 ¿É±ä³¤²ÎÊı
+            //2.3 å¯å˜é•¿å‚æ•°
             System.out.println(joiner.join("one", "two", "three"));
         }
 
 
         /**
-         * 3 Map×ª×Ö·û´®
-         * µÚÒ»¸ö²ÎÊı¿ÉÒÔÊÇÊµÏÖÁË¼¯ºÏ¡¢Êı×é¡¢¿É±ä³¤²ÎÊı
-         * ×¢ÒâNULLµÄ´¦Àí£º
-         * 1 ÎŞ·¨Ê¹ÓÃskipNulls×Ô¶¯ºöÂÔNULLÖµ,¼´Ê¹ÓÃ»¹ÊÇ»á¿ÕÖ¸ÕëÒì³£
-         * 2 Ê¹ÓÃuseForNullÌæ»»NULL
+         * 3 Mapè½¬å­—ç¬¦ä¸²
+         * ç¬¬ä¸€ä¸ªå‚æ•°å¯ä»¥æ˜¯å®ç°äº†é›†åˆã€æ•°ç»„ã€å¯å˜é•¿å‚æ•°
+         * æ³¨æ„NULLçš„å¤„ç†ï¼š
+         * 1 æ— æ³•ä½¿ç”¨skipNullsè‡ªåŠ¨å¿½ç•¥NULLå€¼,å³ä½¿ç”¨è¿˜æ˜¯ä¼šç©ºæŒ‡é’ˆå¼‚å¸¸
+         * 2 ä½¿ç”¨useForNullæ›¿æ¢NULL
          */
         {
             Map<String, String> map = new HashMap<String, String>();
             map.put("key1", "value1");
             map.put("key2", "value2");
             map.put("key3", "value3");
-            map.put("key4", null);//useForNull("empty") Êä³ökey4=empty
+            map.put("key4", null);//useForNull("empty") è¾“å‡ºkey4=empty
             Joiner.MapJoiner mapJoiner = joiner.withKeyValueSeparator("=");
             System.out.println(mapJoiner.join(map));
         }

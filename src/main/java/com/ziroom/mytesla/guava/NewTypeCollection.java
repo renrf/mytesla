@@ -3,21 +3,21 @@ package com.ziroom.mytesla.guava;
 import com.google.common.base.CharMatcher;
 
 /**
- * GuavaÒıÈëÁËºÜ¶àJDKÃ»ÓĞµÄ¡¢µ«ÎÒÃÇ·¢ÏÖÃ÷ÏÔÓĞÓÃµÄĞÂ¼¯ºÏÀàĞÍ,°üÀ¨£º<br>
- * multisets, multimaps, tables, bidirectional mapsµÈ<br>
+ * Guavaå¼•å…¥äº†å¾ˆå¤šJDKæ²¡æœ‰çš„ã€ä½†æˆ‘ä»¬å‘ç°æ˜æ˜¾æœ‰ç”¨çš„æ–°é›†åˆç±»å‹,åŒ…æ‹¬ï¼š<br>
+ * multisets, multimaps, tables, bidirectional mapsç­‰<br>
  *
- * ÕâĞ©ÀàµÄÊ¹ÓÃ³¡¾°Ïà¶ÔÀ´Ëµ²»ÊÇºÜ¶à£¬Òò´Ë´Ë´¦²»¾ßÌåÑİÊ¾£¬Êµ¼ÊÊ¹ÓÃÖ®Ç°¿É²Î¿¼Ò»ÏÂµØÖ·£º<br>
- * 
+ * è¿™äº›ç±»çš„ä½¿ç”¨åœºæ™¯ç›¸å¯¹æ¥è¯´ä¸æ˜¯å¾ˆå¤šï¼Œå› æ­¤æ­¤å¤„ä¸å…·ä½“æ¼”ç¤ºï¼Œå®é™…ä½¿ç”¨ä¹‹å‰å¯å‚è€ƒä¸€ä¸‹åœ°å€ï¼š<br>
+ *
  * http://ifeve.com/google-guava-newcollectiontypes/<br>
- * 
+ *
  * @author homelink
- * 
+ *
  */
 public class NewTypeCollection {
 
     public static void main(String[] args) {
 
-       System.out.print( CharMatcher.JAVA_LETTER.matchesAnyOf("111"));
+        System.out.print( CharMatcher.JAVA_LETTER.matchesAnyOf("111"));
 
     }
 

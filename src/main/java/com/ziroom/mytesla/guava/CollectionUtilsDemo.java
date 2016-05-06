@@ -8,50 +8,50 @@ import com.google.common.collect.Lists;
 import com.google.common.primitives.Ints;
 
 /**
- * Ò»Ğ©³£ÓÃÇÒÓĞÓÃµÄ¼¯ºÏ¹¤¾ßÀàDemo<br>
- * ¸Ãdemo²»¸Ä±äÔ­ÓĞjdkµÄCollection¹¤¾ßÀàµÄÊ¹ÓÃ·½Ê½Èç£º<br>
+ * ä¸€äº›å¸¸ç”¨ä¸”æœ‰ç”¨çš„é›†åˆå·¥å…·ç±»Demo<br>
+ * è¯¥demoä¸æ”¹å˜åŸæœ‰jdkçš„Collectionå·¥å…·ç±»çš„ä½¿ç”¨æ–¹å¼å¦‚ï¼š<br>
  * Collection.addAll(Collection) <br>
- * Collection.contains(Object)µÈ
+ * Collection.contains(Object)ç­‰
  *
  * @author homelink
  *
  */
 public class CollectionUtilsDemo {
 
-    public static void main(String[] args) {
-	/**
-	 * 1 Lists reverse·´×ª partition·ÖÇø
-	 */
-	List<Integer> countUp = Ints.asList(1, 2, 3, 4, 5);
-	List<Integer> countDown = Lists.reverse(countUp); // {5, 4, 3, 2, 1}
-	// °Ñiterable°´Ö¸¶¨´óĞ¡·Ö¸î£¬µÃµ½µÄ×Ó¼¯¶¼²»ÄÜ½øĞĞĞŞ¸Ä²Ù×÷
-	List<List<Integer>> parts = Lists.partition(countUp, 2);// {{1,2}, {3,4}, {5}}
+	public static void main(String[] args) {
+		/**
+		 * 1 Lists reverseåè½¬ partitionåˆ†åŒº
+		 */
+		List<Integer> countUp = Ints.asList(1, 2, 3, 4, 5);
+		List<Integer> countDown = Lists.reverse(countUp); // {5, 4, 3, 2, 1}
+		// æŠŠiterableæŒ‰æŒ‡å®šå¤§å°åˆ†å‰²ï¼Œå¾—åˆ°çš„å­é›†éƒ½ä¸èƒ½è¿›è¡Œä¿®æ”¹æ“ä½œ
+		List<List<Integer>> parts = Lists.partition(countUp, 2);// {{1,2}, {3,4}, {5}}
 
-	/**
-	 * 2.Iterables
-	 */
-	List<String> list1 = Lists.newArrayList("a", "b");
-	List<String> list2 = Lists.newArrayList("c", "d", "b");
-	// ´®Áª¶à¸öiterablesµÄÀÁÊÓÍ¼
-	Iterable<String> it = Iterables.concat(list1, list2);
-	List<String> list3 = Lists.newArrayList(it);
-	// ·µ»Ø¶ÔÏóÔÚiterableÖĞ³öÏÖµÄ´ÎÊı
-	System.out.println(Iterables.frequency(it, "b"));
-	// ·µ»ØiterableµÄµÚÒ»¸öÔªËØ£¬ÈôiterableÎª¿ÕÔò·µ»ØÄ¬ÈÏÖµ
-	System.out.println(Iterables.getFirst(list3, null));
+		/**
+		 * 2.Iterables
+		 */
+		List<String> list1 = Lists.newArrayList("a", "b");
+		List<String> list2 = Lists.newArrayList("c", "d", "b");
+		// ä¸²è”å¤šä¸ªiterablesçš„æ‡’è§†å›¾
+		Iterable<String> it = Iterables.concat(list1, list2);
+		List<String> list3 = Lists.newArrayList(it);
+		// è¿”å›å¯¹è±¡åœ¨iterableä¸­å‡ºç°çš„æ¬¡æ•°
+		System.out.println(Iterables.frequency(it, "b"));
+		// è¿”å›iterableçš„ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œè‹¥iterableä¸ºç©ºåˆ™è¿”å›é»˜è®¤å€¼
+		System.out.println(Iterables.getFirst(list3, null));
 
-	System.out.println(Iterables.getLast(list3, null));
+		System.out.println(Iterables.getLast(list3, null));
 
-	// Èç¹ûÁ½¸öiterableÖĞµÄËùÓĞÔªËØÏàµÈÇÒË³ĞòÒ»ÖÂ£¬·µ»Øtrue
-	System.out.println(Iterables.elementsEqual(list1, list2));
+		// å¦‚æœä¸¤ä¸ªiterableä¸­çš„æ‰€æœ‰å…ƒç´ ç›¸ç­‰ä¸”é¡ºåºä¸€è‡´ï¼Œè¿”å›true
+		System.out.println(Iterables.elementsEqual(list1, list2));
 
-	// ¹ıÂËÆ÷¹¦ÄÜ
-	List<String> names = Lists.newArrayList("John", "Jane", "Adam", "Tom");
-	Iterable<String> result = Iterables.filter(names, Predicates.containsPattern("a"));
-	System.out.println(result);// print [Jane, Adam]
+		// è¿‡æ»¤å™¨åŠŸèƒ½
+		List<String> names = Lists.newArrayList("John", "Jane", "Adam", "Tom");
+		Iterable<String> result = Iterables.filter(names, Predicates.containsPattern("a"));
+		System.out.println(result);// print [Jane, Adam]
 
-	// ²éÕÒ ÕÒµ½·ûºÏÌõ¼şµÄµÚÒ»¸öÂíÉÏ·µ»Ø
-	System.out.println(Iterables.find(names, Predicates.containsPattern("a")));// print Jane
+		// æŸ¥æ‰¾ æ‰¾åˆ°ç¬¦åˆæ¡ä»¶çš„ç¬¬ä¸€ä¸ªé©¬ä¸Šè¿”å›
+		System.out.println(Iterables.find(names, Predicates.containsPattern("a")));// print Jane
 
-    }
+	}
 }

@@ -12,99 +12,99 @@ import com.google.common.collect.Ordering;
 import com.google.common.primitives.Ints;
 
 /**
- * GuavaÇ¿´óµÄ¡±Á÷³©·ç¸ñ±È½ÏÆ÷¡±demo
+ * Guavaå¼ºå¤§çš„â€æµç•…é£æ ¼æ¯”è¾ƒå™¨â€demo
  *
  * @author homelink
  *
  */
 public class OrderingDemo {
 
-    public static void main(String[] args) {
-	/**
-	 * ³£¼ûµÄ¾²Ì¬·½·¨£º
-	 *
-	 * natural()£ºÊ¹ÓÃComparableÀàĞÍµÄ×ÔÈ»Ë³Ğò£¬ ÀıÈç£ºÕûÊı´ÓĞ¡µ½´ó£¬×Ö·û´®ÊÇ°´×ÖµäË³Ğò; <br>
-	 * usingToString() £ºÊ¹ÓÃtoString()·µ»ØµÄ×Ö·û´®°´×ÖµäË³Ğò½øĞĞÅÅĞò£» <br>
-	 */
-	List<String> list = Lists.newArrayList();
-	list.add("peida");
-	list.add("jerry");
-	list.add("harry");
-	list.add("eva");
-	list.add("jhon");
-	list.add("neron");
+	public static void main(String[] args) {
+		/**
+		 * å¸¸è§çš„é™æ€æ–¹æ³•ï¼š
+		 *
+		 * natural()ï¼šä½¿ç”¨Comparableç±»å‹çš„è‡ªç„¶é¡ºåºï¼Œ ä¾‹å¦‚ï¼šæ•´æ•°ä»å°åˆ°å¤§ï¼Œå­—ç¬¦ä¸²æ˜¯æŒ‰å­—å…¸é¡ºåº; <br>
+		 * usingToString() ï¼šä½¿ç”¨toString()è¿”å›çš„å­—ç¬¦ä¸²æŒ‰å­—å…¸é¡ºåºè¿›è¡Œæ’åºï¼› <br>
+		 */
+		List<String> list = Lists.newArrayList();
+		list.add("peida");
+		list.add("jerry");
+		list.add("harry");
+		list.add("eva");
+		list.add("jhon");
+		list.add("neron");
 
-	System.out.println("list:" + list);
-	Ordering<String> naturalOrdering = Ordering.natural();
-	Ordering<Object> usingToStringOrdering = Ordering.usingToString();
+		System.out.println("list:" + list);
+		Ordering<String> naturalOrdering = Ordering.natural();
+		Ordering<Object> usingToStringOrdering = Ordering.usingToString();
 
-	System.out.println("naturalOrdering:" + naturalOrdering.sortedCopy(list));
-	System.out.println("usingToStringOrdering:" + usingToStringOrdering.sortedCopy(list));
-
-
+		System.out.println("naturalOrdering:" + naturalOrdering.sortedCopy(list));
+		System.out.println("usingToStringOrdering:" + usingToStringOrdering.sortedCopy(list));
 
 
-	/**
-	 * ²Ù×÷·½·¨£º
-	 *
-	 * reverse(): ·µ»ØÓëµ±Ç°OrderingÏà·´µÄÅÅĞò: ¡¡¡¡<br>
-	 * nullsFirst(): ·µ»ØÒ»¸ö½«null·ÅÔÚnon-nullÔªËØÖ®Ç°µÄOrdering£¬ÆäËûµÄºÍÔ­Ê¼µÄOrderingÒ»Ñù£» ¡¡¡¡<br>
-	 * nullsLast()£º·µ»ØÒ»¸ö½«null·ÅÔÚnon-nullÔªËØÖ®ºóµÄOrdering£¬ÆäËûµÄºÍÔ­Ê¼µÄOrderingÒ»Ñù£» ¡¡¡¡<br>
-	 * compound(Comparator)£º·µ»ØÒ»¸öÊ¹ÓÃComparatorµÄOrdering£¬Comparator×÷ÎªµÚ¶şÅÅĞòÔªËØ£¬ÀıÈç¶ÔbugÁĞ±í½øĞĞÅÅĞò£¬ÏÈ¸ù¾İbugµÄ¼¶±ğ£¬ÔÙ¸ù¾İÓÅÏÈ¼¶½øĞĞÅÅĞò£» ¡¡¡¡<br>
-	 * lexicographical()£º·µ»ØÒ»¸ö°´ÕÕ×ÖµäÔªËØµü´úµÄOrdering£» ¡¡¡¡<br>
-	 * onResultOf(Function)£º½«functionÓ¦ÓÃÔÚ¸÷¸öÔªËØÉÏÖ®ºó, ÔÚÊ¹ÓÃÔ­Ê¼ordering½øĞĞÅÅĞò£» ¡¡¡¡<br>
-	 * greatestOf(Iterable iterable, int k)£º·µ»ØÖ¸¶¨µÄµÚk¸ö¿Éµü´úµÄ×î´óµÄÔªËØ£¬°´ÕÕÕâ¸ö´Ó×î´óµ½×îĞ¡µÄË³Ğò¡£ÊÇ²»ÎÈ¶¨µÄ¡£ ¡¡¡¡<br>
-	 * leastOf(Iterable<E> iterable,int k)£º·µ»ØÖ¸¶¨µÄµÚk¸ö¿Éµü´úµÄ×îĞ¡µÄÔªËØ£¬°´ÕÕÕâ¸ö´Ó×îĞ¡µ½×î´óµÄË³Ğò¡£ÊÇ²»ÎÈ¶¨µÄ¡£ ¡¡¡¡<br>
-	 * isOrdered(Iterable)£ºÊÇ·ñÓĞĞò£¬Iterable²»ÄÜÉÙÓÚ2¸öÔªËØ¡£ ¡¡¡¡<br>
-	 * isStrictlyOrdered(Iterable)£ºÊÇ·ñÑÏ¸ñÓĞĞò¡£Çë×¢Òâ£¬Iterable²»ÄÜÉÙÓÚÁ½¸öÔªËØ¡£ ¡¡¡¡<br>
-	 * sortedCopy(Iterable)£º·µ»ØÖ¸¶¨µÄÔªËØ×÷ÎªÒ»¸öÁĞ±íµÄÅÅĞò¸±±¾¡£
-	 */
-	List<Integer> listtest = Ints.asList(1, 9, 2, 4, 5);
-	Ordering<Integer> naturalIntReduceOrdering = Ordering.natural();
-	System.out.println("listtest:" + listtest);
-	System.out.println(naturalIntReduceOrdering.isOrdered(listtest));// true
 
-	/**
-	 * ¶à¼¶ÅÅĞò¡¡<br>
-	 * Á÷³Ì·ç¸ñ±È½Ï ³¬¹ıÒ»¶¨³¤¶ÈµÄÁ´Ê½µ÷ÓÃ£¬Ò²¿ÉÄÜ»á´øÀ´ÔÄ¶ÁºÍÀí½âÉÏµÄÄÑ¶È¡£ÎÒÃÇ½¨Òé°´ÏÂÃæµÄ´úÂëÕâÑù£¬ÔÚÒ»¸öÁ´ÖĞ×î¶àÊ¹ÓÃÈı¸ö·½·¨¡£´ËÍâ£¬ÄãÒ²¿ÉÒÔ°ÑFunction·ÖÀë³ÉÖĞ¼ä¶ÔÏó£¬ÈÃÁ´Ê½µ÷ÓÃ¸ü¼ò½à½ô´Õ¡£
-	 */
 
-	List<Foo> fooList = Lists.newArrayList();
-	fooList.add(new Foo(2, "b"));
-	fooList.add(new Foo(1, "f"));
-	fooList.add(new Foo(1, "c"));
-	System.out.println("fooList:" + fooList);
-	Collections.sort(fooList, new Comparator<Foo>() {
-	    @Override
-	    public int compare(Foo f1, Foo f2) {
-		return ComparisonChain.start()// <br>
-			.compare(f1.notSortedBy, f2.notSortedBy)// <br>
-			.compare(f1.secondSortedBy, f2.secondSortedBy)// <br>
-			.result();
-	    }
-	});
-	System.out.println("fooList:" + fooList);
-    }
+		/**
+		 * æ“ä½œæ–¹æ³•ï¼š
+		 *
+		 * reverse(): è¿”å›ä¸å½“å‰Orderingç›¸åçš„æ’åº: ã€€ã€€<br>
+		 * nullsFirst(): è¿”å›ä¸€ä¸ªå°†nullæ”¾åœ¨non-nullå…ƒç´ ä¹‹å‰çš„Orderingï¼Œå…¶ä»–çš„å’ŒåŸå§‹çš„Orderingä¸€æ ·ï¼› ã€€ã€€<br>
+		 * nullsLast()ï¼šè¿”å›ä¸€ä¸ªå°†nullæ”¾åœ¨non-nullå…ƒç´ ä¹‹åçš„Orderingï¼Œå…¶ä»–çš„å’ŒåŸå§‹çš„Orderingä¸€æ ·ï¼› ã€€ã€€<br>
+		 * compound(Comparator)ï¼šè¿”å›ä¸€ä¸ªä½¿ç”¨Comparatorçš„Orderingï¼ŒComparatorä½œä¸ºç¬¬äºŒæ’åºå…ƒç´ ï¼Œä¾‹å¦‚å¯¹bugåˆ—è¡¨è¿›è¡Œæ’åºï¼Œå…ˆæ ¹æ®bugçš„çº§åˆ«ï¼Œå†æ ¹æ®ä¼˜å…ˆçº§è¿›è¡Œæ’åºï¼› ã€€ã€€<br>
+		 * lexicographical()ï¼šè¿”å›ä¸€ä¸ªæŒ‰ç…§å­—å…¸å…ƒç´ è¿­ä»£çš„Orderingï¼› ã€€ã€€<br>
+		 * onResultOf(Function)ï¼šå°†functionåº”ç”¨åœ¨å„ä¸ªå…ƒç´ ä¸Šä¹‹å, åœ¨ä½¿ç”¨åŸå§‹orderingè¿›è¡Œæ’åºï¼› ã€€ã€€<br>
+		 * greatestOf(Iterable iterable, int k)ï¼šè¿”å›æŒ‡å®šçš„ç¬¬kä¸ªå¯è¿­ä»£çš„æœ€å¤§çš„å…ƒç´ ï¼ŒæŒ‰ç…§è¿™ä¸ªä»æœ€å¤§åˆ°æœ€å°çš„é¡ºåºã€‚æ˜¯ä¸ç¨³å®šçš„ã€‚ ã€€ã€€<br>
+		 * leastOf(Iterable<E> iterable,int k)ï¼šè¿”å›æŒ‡å®šçš„ç¬¬kä¸ªå¯è¿­ä»£çš„æœ€å°çš„å…ƒç´ ï¼ŒæŒ‰ç…§è¿™ä¸ªä»æœ€å°åˆ°æœ€å¤§çš„é¡ºåºã€‚æ˜¯ä¸ç¨³å®šçš„ã€‚ ã€€ã€€<br>
+		 * isOrdered(Iterable)ï¼šæ˜¯å¦æœ‰åºï¼ŒIterableä¸èƒ½å°‘äº2ä¸ªå…ƒç´ ã€‚ ã€€ã€€<br>
+		 * isStrictlyOrdered(Iterable)ï¼šæ˜¯å¦ä¸¥æ ¼æœ‰åºã€‚è¯·æ³¨æ„ï¼ŒIterableä¸èƒ½å°‘äºä¸¤ä¸ªå…ƒç´ ã€‚ ã€€ã€€<br>
+		 * sortedCopy(Iterable)ï¼šè¿”å›æŒ‡å®šçš„å…ƒç´ ä½œä¸ºä¸€ä¸ªåˆ—è¡¨çš„æ’åºå‰¯æœ¬ã€‚
+		 */
+		List<Integer> listtest = Ints.asList(1, 9, 2, 4, 5);
+		Ordering<Integer> naturalIntReduceOrdering = Ordering.natural();
+		System.out.println("listtest:" + listtest);
+		System.out.println(naturalIntReduceOrdering.isOrdered(listtest));// true
 
-    static class Foo {
-	Integer notSortedBy;
-	String secondSortedBy;
+		/**
+		 * å¤šçº§æ’åºã€€<br>
+		 * æµç¨‹é£æ ¼æ¯”è¾ƒ è¶…è¿‡ä¸€å®šé•¿åº¦çš„é“¾å¼è°ƒç”¨ï¼Œä¹Ÿå¯èƒ½ä¼šå¸¦æ¥é˜…è¯»å’Œç†è§£ä¸Šçš„éš¾åº¦ã€‚æˆ‘ä»¬å»ºè®®æŒ‰ä¸‹é¢çš„ä»£ç è¿™æ ·ï¼Œåœ¨ä¸€ä¸ªé“¾ä¸­æœ€å¤šä½¿ç”¨ä¸‰ä¸ªæ–¹æ³•ã€‚æ­¤å¤–ï¼Œä½ ä¹Ÿå¯ä»¥æŠŠFunctionåˆ†ç¦»æˆä¸­é—´å¯¹è±¡ï¼Œè®©é“¾å¼è°ƒç”¨æ›´ç®€æ´ç´§å‡‘ã€‚
+		 */
 
-	public Foo(Integer f, String a) {
-	    notSortedBy = f;
-	    secondSortedBy = a;
+		List<Foo> fooList = Lists.newArrayList();
+		fooList.add(new Foo(2, "b"));
+		fooList.add(new Foo(1, "f"));
+		fooList.add(new Foo(1, "c"));
+		System.out.println("fooList:" + fooList);
+		Collections.sort(fooList, new Comparator<Foo>() {
+			@Override
+			public int compare(Foo f1, Foo f2) {
+				return ComparisonChain.start()// <br>
+						.compare(f1.notSortedBy, f2.notSortedBy)// <br>
+						.compare(f1.secondSortedBy, f2.secondSortedBy)// <br>
+						.result();
+			}
+		});
+		System.out.println("fooList:" + fooList);
 	}
 
-	@Override
-	public String toString() {
-	    StringBuilder builder = new StringBuilder();
-	    builder.append("Foo [notSortedBy=");
-	    builder.append(notSortedBy);
-	    builder.append(", secondSortedBy=");
-	    builder.append(secondSortedBy);
-	    builder.append("]");
-	    return builder.toString();
-	}
+	static class Foo {
+		Integer notSortedBy;
+		String secondSortedBy;
 
-    }
+		public Foo(Integer f, String a) {
+			notSortedBy = f;
+			secondSortedBy = a;
+		}
+
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			builder.append("Foo [notSortedBy=");
+			builder.append(notSortedBy);
+			builder.append(", secondSortedBy=");
+			builder.append(secondSortedBy);
+			builder.append("]");
+			return builder.toString();
+		}
+
+	}
 }

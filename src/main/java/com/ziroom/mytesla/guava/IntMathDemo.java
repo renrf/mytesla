@@ -3,56 +3,56 @@ package com.ziroom.mytesla.guava;
 import com.google.common.math.IntMath;
 
 /**
- * ÕûÊıÔËËã<br>
- * Ö»ÁĞ¾Ù³£ÓÃµÄ£¬¸ü¶àµÄ×ÔĞĞÑĞ¾¿Èç½×³Ë¡¢¶şÏîÊ½µÈ<br>
- * LongMathÓëIntMathÀàËÆ,ÆäËû»¹ÓÃjava.lang.Math
+ * æ•´æ•°è¿ç®—<br>
+ * åªåˆ—ä¸¾å¸¸ç”¨çš„ï¼Œæ›´å¤šçš„è‡ªè¡Œç ”ç©¶å¦‚é˜¶ä¹˜ã€äºŒé¡¹å¼ç­‰<br>
+ * LongMathä¸IntMathç±»ä¼¼,å…¶ä»–è¿˜ç”¨java.lang.Math
  *
  * @author homelink
  *
  */
 public class IntMathDemo {
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
 	/**
-	 * °²È«¼Ó·¨ÔËËã½á¹ûÒç³öÊ±£¬ÕâĞ©·½·¨½«¿ìËÙÊ§°Ü¶ø²»ÊÇºöÂÔÒç³ö,java.lang.ArithmeticException: overflow <br>
-	 * ²»Ê¹ÓÃ½«µÃµ½Ò»¸ö²»¿ÉÔ¤ÁÏµÄÖµ
+	 * @param args
 	 */
-	// System.out.println(IntMath.checkedAdd(Integer.MAX_VALUE, 1));
-	/**
-	 * °²È«³Ë·¨ÔËËã½á¹ûÒç³öÊ±£¬ÕâĞ©·½·¨½«¿ìËÙÊ§°Ü¶ø²»ÊÇºöÂÔÒç³ö,java.lang.ArithmeticException: overflow
-	 *
-	 */
-	// System.out.println(IntMath.checkedMultiply(Integer.MAX_VALUE, 2));
-	/**
-	 * °²È«ÃİÔËËã½á¹ûÒç³öÊ±£¬ÕâĞ©·½·¨½«¿ìËÙÊ§°Ü¶ø²»ÊÇºöÂÔÒç³ö,java.lang.ArithmeticException: overflow
-	 *
-	 */
-	// System.out.println(IntMath.checkedPow(Integer.MAX_VALUE, 0));
-	/**
-	 * °²È«¼õ·¨ÔËËã½á¹ûÒç³öÊ±£¬ÕâĞ©·½·¨½«¿ìËÙÊ§°Ü¶ø²»ÊÇºöÂÔÒç³ö,java.lang.ArithmeticException: overflow
-	 *
-	 */
-	// System.out.println(IntMath.checkedSubtract(Integer.MIN_VALUE, 1));
-	/**
-	 * ³ı·¨ <br>
-	 * RoundingMode: <br>
-	 * DOWN£ºÏòÁã·½ÏòÉáÈë£¨È¥Î²·¨£© <br>
-	 * UP£ºÔ¶ÀëÁã·½ÏòÉáÈë <br>
-	 * FLOOR£ºÏò¸ºÎŞÏŞ´ó·½ÏòÉáÈë <br>
-	 * CEILING£ºÏòÕıÎŞÏŞ´ó·½ÏòÉáÈë <br>
-	 * UNNECESSARY£º²»ĞèÒªÉáÈë£¬Èç¹ûÓÃ´ËÄ£Ê½½øĞĞÉáÈë£¬Ó¦Ö±½ÓÅ×³öArithmeticException <br>
-	 * HALF_UP£ºÏò×î½üµÄÕûÊıÉáÈë£¬ÆäÖĞx.5Ô¶ÀëÁã·½ÏòÉáÈë <br>
-	 * HALF_DOWN£ºÏò×î½üµÄÕûÊıÉáÈë£¬ÆäÖĞx.5ÏòÁã·½ÏòÉáÈë <br>
-	 * HALF_EVEN£ºÏò×î½üµÄÕûÊıÉáÈë£¬ÆäÖĞx.5ÏòÏàÁÚµÄÅ¼ÊıÉáÈë
-	 */
-	System.out.println(IntMath.divide(5, 2, java.math.RoundingMode.DOWN));
-	/**
-	 * È¡Ä£
-	 * 
-	 */
-	System.out.println(IntMath.mod(Integer.MAX_VALUE, 1));
+	public static void main(String[] args) {
+		/**
+		 * å®‰å…¨åŠ æ³•è¿ç®—ç»“æœæº¢å‡ºæ—¶ï¼Œè¿™äº›æ–¹æ³•å°†å¿«é€Ÿå¤±è´¥è€Œä¸æ˜¯å¿½ç•¥æº¢å‡º,java.lang.ArithmeticException: overflow <br>
+		 * ä¸ä½¿ç”¨å°†å¾—åˆ°ä¸€ä¸ªä¸å¯é¢„æ–™çš„å€¼
+		 */
+		// System.out.println(IntMath.checkedAdd(Integer.MAX_VALUE, 1));
+		/**
+		 * å®‰å…¨ä¹˜æ³•è¿ç®—ç»“æœæº¢å‡ºæ—¶ï¼Œè¿™äº›æ–¹æ³•å°†å¿«é€Ÿå¤±è´¥è€Œä¸æ˜¯å¿½ç•¥æº¢å‡º,java.lang.ArithmeticException: overflow
+		 *
+		 */
+		// System.out.println(IntMath.checkedMultiply(Integer.MAX_VALUE, 2));
+		/**
+		 * å®‰å…¨å¹‚è¿ç®—ç»“æœæº¢å‡ºæ—¶ï¼Œè¿™äº›æ–¹æ³•å°†å¿«é€Ÿå¤±è´¥è€Œä¸æ˜¯å¿½ç•¥æº¢å‡º,java.lang.ArithmeticException: overflow
+		 *
+		 */
+		// System.out.println(IntMath.checkedPow(Integer.MAX_VALUE, 0));
+		/**
+		 * å®‰å…¨å‡æ³•è¿ç®—ç»“æœæº¢å‡ºæ—¶ï¼Œè¿™äº›æ–¹æ³•å°†å¿«é€Ÿå¤±è´¥è€Œä¸æ˜¯å¿½ç•¥æº¢å‡º,java.lang.ArithmeticException: overflow
+		 *
+		 */
+		// System.out.println(IntMath.checkedSubtract(Integer.MIN_VALUE, 1));
+		/**
+		 * é™¤æ³• <br>
+		 * RoundingMode: <br>
+		 * DOWNï¼šå‘é›¶æ–¹å‘èˆå…¥ï¼ˆå»å°¾æ³•ï¼‰ <br>
+		 * UPï¼šè¿œç¦»é›¶æ–¹å‘èˆå…¥ <br>
+		 * FLOORï¼šå‘è´Ÿæ— é™å¤§æ–¹å‘èˆå…¥ <br>
+		 * CEILINGï¼šå‘æ­£æ— é™å¤§æ–¹å‘èˆå…¥ <br>
+		 * UNNECESSARYï¼šä¸éœ€è¦èˆå…¥ï¼Œå¦‚æœç”¨æ­¤æ¨¡å¼è¿›è¡Œèˆå…¥ï¼Œåº”ç›´æ¥æŠ›å‡ºArithmeticException <br>
+		 * HALF_UPï¼šå‘æœ€è¿‘çš„æ•´æ•°èˆå…¥ï¼Œå…¶ä¸­x.5è¿œç¦»é›¶æ–¹å‘èˆå…¥ <br>
+		 * HALF_DOWNï¼šå‘æœ€è¿‘çš„æ•´æ•°èˆå…¥ï¼Œå…¶ä¸­x.5å‘é›¶æ–¹å‘èˆå…¥ <br>
+		 * HALF_EVENï¼šå‘æœ€è¿‘çš„æ•´æ•°èˆå…¥ï¼Œå…¶ä¸­x.5å‘ç›¸é‚»çš„å¶æ•°èˆå…¥
+		 */
+		System.out.println(IntMath.divide(5, 2, java.math.RoundingMode.DOWN));
+		/**
+		 * å–æ¨¡
+		 *
+		 */
+		System.out.println(IntMath.mod(Integer.MAX_VALUE, 1));
 
-    }
+	}
 }

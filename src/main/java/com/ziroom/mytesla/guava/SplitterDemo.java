@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Splitter¹¦ÄÜÓëJoinerÏà·´£¬Æä¶Ô×Ö·û´®½øĞĞ·Ö¸î²Ù×÷
+ * SplitteråŠŸèƒ½ä¸Joinerç›¸åï¼Œå…¶å¯¹å­—ç¬¦ä¸²è¿›è¡Œåˆ†å‰²æ“ä½œ
  */
 public class SplitterDemo {
     private static final String DELIMITER = ",";
-    //JoinerÒ»µ©´´½¨²»¿É±ä£¬·ûºÏ²»±äĞÔ£¬Òò´ËÏß³Ì°²È«
+    //Joinerä¸€æ—¦åˆ›å»ºä¸å¯å˜ï¼Œç¬¦åˆä¸å˜æ€§ï¼Œå› æ­¤çº¿ç¨‹å®‰å…¨
     private static final Splitter splitter = Splitter.on(DELIMITER);
 
     private static String numberList = "One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten";
@@ -18,41 +18,41 @@ public class SplitterDemo {
 
     public static void main(String[] args) {
         {
-            //1.1 ·µ»ØIterable<String>¶ÔÏó,ÆäÊµÊÇcom.google.common.base.SplitterµÄÒ»¸öÄÚ²¿ÀàÊµÀı
+            //1.1 è¿”å›Iterable<String>å¯¹è±¡,å…¶å®æ˜¯com.google.common.base.Splitterçš„ä¸€ä¸ªå†…éƒ¨ç±»å®ä¾‹
             String s = "one,two,three";
             Iterable<String> iterable = splitter.split(s);
             System.out.println(iterable.getClass().getName());
             System.out.println(iterable);
 
-            //1.2 List<String>¶ÔÏó,ÆäÊµÊÇjava.util.Collections$UnmodifiableRandomAccessListÊµÀı,Ö»¶ÁList
+            //1.2 List<String>å¯¹è±¡,å…¶å®æ˜¯java.util.Collections$UnmodifiableRandomAccessListå®ä¾‹,åªè¯»List
             List<String> list = splitter.splitToList(s);
             System.out.println(list.getClass().getName());
             System.out.println(list);
-            //list.add("four");//listÖ»¶Á,´Ë´¦½«Å×³öjava.lang.UnsupportedOperationException
+            //list.add("four");//liståªè¯»,æ­¤å¤„å°†æŠ›å‡ºjava.lang.UnsupportedOperationException
 
-            //1.3 ¿Õ¸ñ´¦Àí
+            //1.3 ç©ºæ ¼å¤„ç†
             s = "one ,two ,three ";
             System.out.println(splitter.trimResults().splitToList(s));
         }
 
 
         {
-            //2.1 ·µ»ØIterable<String>¶ÔÏó,ÆäÊµÊÇjava.util.Collections$UnmodifiableMapÊµÀı
+            //2.1 è¿”å›Iterable<String>å¯¹è±¡,å…¶å®æ˜¯java.util.Collections$UnmodifiableMapå®ä¾‹
             String s = "key3=value3,key2=value2,key1=value1 ";
             Splitter.MapSplitter mapSplitter = splitter.trimResults().withKeyValueSeparator("=");
             Map<String, String> map = mapSplitter.split(s);
             System.out.println(map.getClass().getName());
             System.out.println(map);
-//            map.put("key4","value4");//mapÖ»¶Á,´Ë´¦½«Å×³öjava.lang.UnsupportedOperationException
+//            map.put("key4","value4");//mapåªè¯»,æ­¤å¤„å°†æŠ›å‡ºjava.lang.UnsupportedOperationException
 
-            //2.2 ¿Õ¸ñ´¦Àí splitter.trimResults().withKeyValueSeparator("=");
-            s = "key3=value3,key2=value2,key1=value1 ";//ÄÜ´¦Àí×Ö·û´®Ç°ºó¿Õ¸ñºÍ,ºÅÇ°ºó¿Õ¸ñ,==ºÅÇ°ºó¿Õ¸ñ²»ÄÜ´¦Àí
+            //2.2 ç©ºæ ¼å¤„ç† splitter.trimResults().withKeyValueSeparator("=");
+            s = "key3=value3,key2=value2,key1=value1 ";//èƒ½å¤„ç†å­—ç¬¦ä¸²å‰åç©ºæ ¼å’Œ,å·å‰åç©ºæ ¼,==å·å‰åç©ºæ ¼ä¸èƒ½å¤„ç†
 
         }
 
 
 
-       long start = 0;
+        long start = 0;
        /* for(int i=0; i<1000000; i++) {
             StringUtils.split(numberList, ',');
         }*/
