@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 
 /**
  * 格式化数字工具类
@@ -117,6 +118,7 @@ public class NumberUtil {
 		if(number instanceof BigDecimal){
 			return (new BigDecimal(number.toString())).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
 		}
+
 		return (int)number;
 	}
 	
@@ -210,12 +212,8 @@ public class NumberUtil {
 	 * @return
 	 */
 	public static boolean isInteger(Object value) {
-		if (value==null) {
-			return false;
-		}
-		String mstr = value.toString();
-		Pattern pattern = Pattern.compile("^-?\\d+$");
-		return pattern.matcher(mstr).matches();
+        if (value==null) return  false;
+		return NumberUtils.isNumber(value.toString());
 	}
 
 	/**
@@ -228,9 +226,7 @@ public class NumberUtil {
 		if (value==null) {
 			return false;
 		}
-		String mstr = value.toString();
-		Pattern pattern = Pattern.compile("^-?[0-9]*.?[0-9]*$");
-		return pattern.matcher(mstr).matches();
+		return NumberUtils.isDigits(value.toString());
 	}
 
 
