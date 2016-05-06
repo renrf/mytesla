@@ -201,6 +201,40 @@ public class NumberUtil {
 		return defaultValue;
 	}
 
+
+
+	/**
+	 * 判断当前值是否为整数
+	 *
+	 * @param value
+	 * @return
+	 */
+	public static boolean isInteger(Object value) {
+		if (value==null) {
+			return false;
+		}
+		String mstr = value.toString();
+		Pattern pattern = Pattern.compile("^-?\\d+$");
+		return pattern.matcher(mstr).matches();
+	}
+
+	/**
+	 * 判断当前值是否为数字(包括小数)
+	 *
+	 * @param value
+	 * @return
+	 */
+	public static boolean isDigit(Object value) {
+		if (value==null) {
+			return false;
+		}
+		String mstr = value.toString();
+		Pattern pattern = Pattern.compile("^-?[0-9]*.?[0-9]*$");
+		return pattern.matcher(mstr).matches();
+	}
+
+
+
 	public static void main(String[] args) {
 		/*System.out.println(format("0.01"));
 		System.out.println(format("0.1"));
