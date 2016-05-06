@@ -19,9 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
@@ -45,7 +43,6 @@ import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -59,16 +56,6 @@ import com.ziroom.mytesla.common.MyException;
 public class ServerResource {
     private static Logger logger = LoggerFactory.getLogger(ServerResource.class);
 
-    @Value("${cc.name}")
-    private String name;
-
-    @Value("${fail.hello}")
-    private boolean failHello;
-
-
-    @Value("${sleep.time}")
-    private long sleepTime;
-
     @Context
     UriInfo ui;
     @Context
@@ -76,22 +63,6 @@ public class ServerResource {
 
     @Context
     Request request;
-
-
-    /**
-     * 基本GET调用
-     * @return
-     */
-    @GET
-    @Path("hello")
-    @Produces({"text/plain"})
-    public Response helloTesla() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(sleepTime);
-        if(failHello) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("hello").build();
-        }
-        return Response.ok("hello tesla").build();
-    }
 
     /**
      * 从uri获取参数
