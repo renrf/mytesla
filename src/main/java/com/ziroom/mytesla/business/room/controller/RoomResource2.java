@@ -23,7 +23,7 @@ public class RoomResource2 {
 
     @GET
     @Produces({"text/plain"})
-    @Path("t2.html")
+    @Path("t2")
     public String testTesla() {
         ApplicationConfiguration configuration = TeslaConfigurationFactory.getInstance();
         return "hello " + configuration.getString("your.name", "j") + " and " + this.yourName;
